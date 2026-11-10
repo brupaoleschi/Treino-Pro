@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#090d14">
+<meta name="description" content="Seu treino, sua evolução. Acompanhe exercícios, descanso e cardio.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<title>Treino PRO</title>
+<style>
+:root{--bg:#090d14;--panel:#151e2a;--panel2:#202c3a;--line:#304052;--text:#f5f7fa;--muted:#aab7c6;--lime:#b6ff00;--orange:#ff8738;--green:#183322}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;padding-bottom:34px}
+header{position:sticky;top:0;z-index:5;background:#0d131dF2;border-bottom:1px solid #263342;backdrop-filter:blur(12px);padding:16px max(16px,env(safe-area-inset-left))}
+.wrap{max-width:760px;margin:auto}.brand{display:flex;align-items:center;gap:11px}.logo{width:42px;height:42px;border-radius:13px;background:var(--lime);color:#142000;display:grid;place-items:center;font-size:25px;font-weight:1000}.brand h1{font-size:23px;letter-spacing:-1px;margin:0;font-weight:950}.tag{font-size:10px;letter-spacing:1.5px;color:var(--lime);font-weight:800;margin-top:3px}
+main{max-width:760px;margin:auto;padding:18px 16px}.tabs{display:flex;gap:8px;overflow:auto;padding:15px 0 3px;scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}.tab{flex:0 0 auto;border:0;border-radius:999px;padding:11px 19px;background:var(--panel2);color:var(--muted);font-weight:850}.tab.active{background:var(--lime);color:#172000}
+.info{background:#14263a;border:1px solid #2d5274;color:#d5e9ff;padding:14px;border-radius:17px;font-size:13px;line-height:1.5;margin:3px 0 22px}.info strong{color:white}.topline{display:flex;justify-content:space-between;align-items:center;gap:12px}.eyebrow{font-size:11px;letter-spacing:1.2px;color:var(--lime);font-weight:900}.title{font-size:22px;font-weight:900;line-height:1.2;margin:7px 0 13px}.progressbox,.card{background:var(--panel);border:1px solid #293747;border-radius:18px;padding:16px;margin-bottom:12px}.progressline{height:9px;background:#344252;border-radius:99px;overflow:hidden;margin:12px 0 8px}.progressfill{height:100%;width:0;background:var(--lime);border-radius:99px;transition:width .25s}.muted{color:var(--muted);font-size:12px}.reset{border:1px solid #4c3a2d;background:#2a211b;color:#ffad71;border-radius:11px;padding:9px 11px;font-weight:750}
+.exercise{display:flex;gap:13px;align-items:flex-start;width:100%;text-align:left;background:var(--panel);border:1px solid #293747;border-radius:17px;padding:15px;margin:10px 0;color:var(--text)}.exercise.done{background:#14271d;border-color:#5a8b20}.check{width:30px;height:30px;flex:0 0 30px;border-radius:10px;background:#2a394a;display:grid;place-items:center;color:var(--lime);font-weight:900}.done .check{background:var(--lime);color:#172000}.exname{font-size:15px;font-weight:850;line-height:1.3}.meta{color:var(--lime);font-size:12px;font-weight:800;margin:5px 0}.desc{color:var(--muted);font-size:12px;line-height:1.45}.cardio{background:linear-gradient(135deg,#2a1b13,#25191d);border:1px solid #8d4a25;border-radius:19px;padding:17px;margin-top:22px}.cardio h3{color:#ffad71;margin:0 0 10px;font-size:16px}.cardio .duration{font-size:25px;font-weight:950}.pill{display:inline-block;background:#44291b;color:#ffbd8d;border:1px solid #764224;border-radius:9px;padding:6px 9px;font-size:11px;font-weight:800;margin:8px 0}
+.timer{position:fixed;right:14px;bottom:max(14px,env(safe-area-inset-bottom));z-index:8;background:#182431;border:1px solid #3b4b5c;border-radius:18px;padding:10px;box-shadow:0 12px 35px #0009;min-width:180px}.timerlabel{text-align:center;color:var(--muted);font-size:10px;font-weight:900;letter-spacing:1px}.timerbuttons{display:flex;gap:7px;margin-top:8px}.timer button{border:0;border-radius:10px;background:var(--lime);color:#172000;font-weight:950;padding:9px 13px}.timer.active{background:#12613e;border-color:#55d995}.timer.active.urgent{background:#a52b2b}.timerdisplay{font-size:30px;font-weight:950;text-align:center;font-variant-numeric:tabular-nums;margin:5px}.timer .stop{width:100%;background:#ffffff26;color:white}
+.footer{text-align:center;color:#708093;font-size:10px;letter-spacing:1px;margin:26px 0 95px}.installhint{display:none;background:#1d2a38;padding:12px;border-radius:13px;color:#dce8f3;font-size:12px;margin:14px 0}.smallbtn{border:1px solid #405064;background:#202c3a;color:#dce8f3;border-radius:10px;padding:8px 10px;font-weight:700}
+@media(min-width:650px){main{padding-top:24px}.exercise{padding:17px}.title{font-size:26px}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+ <div class="brand"><div class="logo">⚡</div><div><h1>TREINO PRO</h1><div class="tag">YOUR FITNESS. YOUR POWER.</div></div></div>
+ <nav class="tabs" id="tabs" aria-label="Selecionar treino"></nav>
+</div></header>
+<main>
+ <div class="info"><strong>DESCANSO:</strong> 45 a 60 segundos entre séries, ajustando conforme sua recuperação.<br><strong>CARGA:</strong> desafiante, mantendo a execução correta. Não é necessário chegar à falha em todas as séries.</div>
+ <div class="topline"><div><div class="eyebrow" id="daylabel">TREINO A</div><h2 class="title" id="workouttitle"></h2></div><button class="reset" id="reset">↻ Reiniciar dia</button></div>
+ <section class="progressbox"><div class="topline"><strong>SEU PROGRESSO</strong><strong id="percent" style="color:var(--lime)">0%</strong></div><div class="progressline"><div class="progressfill" id="progress"></div></div><div class="muted" id="count">0 exercícios concluídos</div></section>
+ <section id="exercises" aria-label="Exercícios"></section>
+ <section class="cardio" id="cardio"><h3>🔥 CARDIO FINAL</h3><div class="duration" id="cardioduration"></div><div class="pill" id="cardiointensity"></div><div class="desc" id="cardiodesc" style="color:#e0c4b2"></div></section>
+ <div class="installhint" id="installhint">Para instalar: no Safari, toque em Compartilhar e depois em <strong>Adicionar à Tela de Início</strong>.</div>
+ <div class="footer">TREINO PRO · PERFORMANCE EDITION</div>
+</main>
+<div class="timer" id="timer">
+ <div class="timerlabel" id="timerlabel">DESCANSO ENTRE SÉRIES</div>
+ <div class="timerdisplay" id="timerdisplay" style="display:none">00:45</div>
+ <div class="timerbuttons" id="timerbuttons"><button data-seconds="45">45s</button><button data-seconds="60">60s</button></div>
+ <button class="stop" id="stop" style="display:none">Parar cronômetro</button>
+</div>
+<script>
+const workouts = [
+{id:"A",title:"Costas, Tríceps e Ombro Posterior",ex:[
+["Puxada Alta Supinada","3 séries · 12 repetições","Puxe a barra em direção à parte superior do peito com as palmas voltadas para você e suba alongando."],
+["Puxada Alta Triângulo + Escalador","3 séries · 10 reps + 15s","Puxe em direção ao peito com os cotovelos fechados e faça escaladores em seguida."],
+["Remada Baixa Triângulo","3 séries · 12 repetições","Puxe o triângulo em direção ao umbigo, contraindo as escápulas."],
+["Pulldown com Corda na Polia","3 séries · 12 repetições","Em pé, empurre a corda para baixo em direção às coxas."],
+["Tríceps Corda","3 séries · 12 repetições","Com cotovelos próximos ao corpo, empurre a corda para baixo e abra levemente as mãos."],
+["Tríceps Francês","3 séries · 12 repetições","Flexione os cotovelos, descendo o peso atrás da nuca, e estenda."],
+["Face Pull na Polia","3 séries · 12 repetições","Puxe a corda na direção do rosto, abrindo os cotovelos."],
+["Abdominal Infra Solo","3 séries · 20 repetições","Eleve as pernas em direção ao teto e tire levemente o quadril do chão."]],
+card:["ESCADA","30 minutos","Intensidade moderada · nível 6 a 8","Ajuste a intensidade conforme seu condicionamento e a recuperação."]},
+{id:"B",title:"Glúteos e Core",ex:[
+["Agachamento Livre ou Smith","4 séries · 12 repetições","Desça com controle, mantendo o peito aberto."],
+["Elevação Pélvica","4 séries · 12 repetições","Com as costas apoiadas, eleve o quadril contraindo os glúteos no topo."],
+["Afundo Búlgaro","3 séries · 10–12 reps por perna","Apoie o pé de trás em um banco e desça com controle."],
+["Subida na Caixa (Step-up)","3 séries · 10–12 reps por perna","Pise firme na caixa e suba focando no pé apoiado."],
+["Cadeira Abdutora","3 séries · 20 repetições","Empurre as almofadas para fora e controle a volta."],
+["Abdominal Oblíquo Solo","3 séries · 15 reps por lado","Gire o tronco levando o cotovelo em direção ao joelho oposto."]],
+card:["ESTEIRA","30 minutos","5,5–6 km/h · inclinação 4–6%","Caminhada moderada. Ajuste velocidade e inclinação à sua condição."]},
+{id:"C",title:"Peito, Bíceps e Ombro Anterior",ex:[
+["Crucifixo Máquina (Peck Deck)","3 séries · 12 repetições","Feche os braços contraindo o peitoral e retorne alongando."],
+["Supino Máquina + Flexão","3 séries · 10 + 8 repetições","Empurre o peso na máquina e depois execute flexões adaptadas se necessário."],
+["Desenvolvimento Articulado","3 séries · 10 repetições","Empurre os manípulos para cima e desça até uma amplitude confortável."],
+["Rosca Direta no Cabo","3 séries · 10 repetições","Puxe a barra em direção ao peito flexionando apenas os cotovelos."],
+["Rosca Martelo + Polichinelo","3 séries · 10 reps + 20s","Faça a rosca com a corda e depois os polichinelos."],
+["Prancha Isométrica","3 séries · 30 segundos","Mantenha o corpo alinhado, apoiado nos antebraços e pontas dos pés."]],
+card:["ESCADA","30 minutos","Intensidade moderada a alta · nível 7 a 9","Aumente gradualmente conforme sua resistência e recuperação."]},
+{id:"D",title:"Ombro, Panturrilhas e HIIT",ex:[
+["Elevação Lateral","3 séries · 12 repetições","Eleve os braços lateralmente até a altura dos ombros."],
+["Remada Alta Aberta","3 séries · 12 repetições","Puxe a barra em direção ao peito, sem forçar os ombros."],
+["Panturrilhas Máquina (Em Pé)","3 séries · 15 repetições","Desça os calcanhares e suba ficando na ponta dos pés."],
+["Abdominal Infra Solo","3 séries · 15 repetições","Eleve as pernas e faça a retroversão da pelve."],
+["Prancha Isométrica","2 séries · 20 segundos","Mantenha o corpo reto e estável."]],
+card:["ESTEIRA HIIT","30 minutos","Intervalado · 1 min forte + 1 min leve","Adapte os intervalos à sua capacidade. HIIT não precisa ser máximo para ser eficaz."]},
+{id:"E",title:"Quadríceps e Posteriores",ex:[
+["Agachamento Smith","3 séries · 10 repetições","Posicione os pés de forma confortável e agache com controle."],
+["Cadeira Extensora + Isometria","3 séries · 12 reps + 10s","Estenda as pernas; faça a isometria conforme orientação do profissional."],
+["Leg Press 45° + Cadeirinha","3 séries · 12 reps + 15s","Faça o leg press e finalize com isometria na parede, se confortável."],
+["Cadeira Adutora","3 séries · 12 repetições","Feche as pernas contraindo a parte interna das coxas."],
+["Flexão de Pernas em Pé + Stiff","3 séries · 12 + 10 reps","Flexione a perna para trás e depois faça o stiff com coluna neutra."],
+["Good Morning + Afundo Corporal","3 séries · 15 + 15 reps","Incline o tronco com coluna neutra e finalize com afundos."]],
+card:["ESTEIRA","30 minutos","Caminhada contínua · 5–5,5 km/h · inclinação 0%","Caminhada leve, respeitando sua recuperação."]}
+];
+const $=id=>document.getElementById(id);
+let active="A", completed=load(), interval=null, endAt=0;
+function load(){try{return JSON.parse(localStorage.getItem("treinoPro_v1")||"{}")}catch(e){return {}}}
+function save(){localStorage.setItem("treinoPro_v1",JSON.stringify(completed))}
+function renderTabs(){$("tabs").innerHTML=workouts.map(w=>`<button class="tab ${w.id===active?"active":""}" data-day="${w.id}">TREINO ${w.id}</button>`).join("");document.querySelectorAll("[data-day]").forEach(b=>b.addEventListener("click",()=>{active=b.dataset.day;render()}))}
+function render(){
+ const w=workouts.find(x=>x.id===active),done=w.ex.filter((x,i)=>completed[`${active}-${i}`]).length,p=Math.round(done/w.ex.length*100);
+ renderTabs();$("daylabel").textContent=`TREINO ${active}`;$("workouttitle").textContent=w.title;$("percent").textContent=p+"%";$("progress").style.width=p+"%";$("count").textContent=`${done} de ${w.ex.length} exercícios concluídos`;
+ $("exercises").innerHTML=w.ex.map((e,i)=>{let yes=!!completed[`${active}-${i}`];return `<button class="exercise ${yes?"done":""}" data-ex="${i}"><span class="check">${yes?"✓":i+1}</span><span><div class="exname">${e[0]}</div><div class="meta">${e[1]}</div><div class="desc">${e[2]}</div></span></button>`}).join("");
+ document.querySelectorAll("[data-ex]").forEach(b=>b.addEventListener("click",()=>{let k=`${active}-${b.dataset.ex}`;completed[k]=!completed[k];save();render()}));
+ $("cardioduration").textContent=w.card[1];$("cardiointensity").textContent=w.card[2];$("cardiodesc").textContent=w.card[3];
+}
+$("reset").addEventListener("click",()=>{if(confirm(`Zerar o progresso do Treino ${active}?`)){workouts.find(w=>w.id===active).ex.forEach((e,i)=>delete completed[`${active}-${i}`]);save();render()}});
+function timerTick(){let left=Math.max(0,Math.ceil((endAt-Date.now())/1000));$("timerdisplay").textContent=`${String(Math.floor(left/60)).padStart(2,"0")}:${String(left%60).padStart(2,"0")}`;$("timer").classList.toggle("urgent",left<=5);if(left<=0){stopTimer();if("vibrate"in navigator)navigator.vibrate([250,100,250]);try{new AudioContext().resume().then(()=>{});}catch(e){};alert("Descanso concluído! Bora para a próxima série 💪")}}
+function startTimer(s){clearInterval(interval);endAt=Date.now()+s*1000;$("timer").classList.add("active");$("timerdisplay").style.display="block";$("timerbuttons").style.display="none";$("stop").style.display="block";$("timerlabel").textContent="TEMPO RESTANTE";timerTick();interval=setInterval(timerTick,250)}
+function stopTimer(){clearInterval(interval);interval=null;$("timer").classList.remove("active","urgent");$("timerdisplay").style.display="none";$("timerbuttons").style.display="flex";$("stop").style.display="none";$("timerlabel").textContent="DESCANSO ENTRE SÉRIES"}
+document.querySelectorAll("[data-seconds]").forEach(b=>b.addEventListener("click",()=>startTimer(Number(b.dataset.seconds))));$("stop").addEventListener("click",stopTimer);
+render();
+if("serviceWorker"in navigator && location.protocol.startsWith("http")){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}))}
+if(/iphone|ipad|ipod/i.test(navigator.userAgent) && !window.navigator.standalone){$("installhint").style.display="block"}
+</script>
+</body></html>
